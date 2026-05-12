@@ -6,6 +6,17 @@ load_dotenv()
 
 MODEL = "claude-sonnet-4-6"
 
+
+def _api_key():
+    key = os.getenv("ANTHROPIC_API_KEY")
+    if not key:
+        try:
+            import streamlit as st
+            key = st.secrets.get("ANTHROPIC_API_KEY")
+        except Exception:
+            pass
+    return key
+
 SYSTEM_PROMPT = """Sa oled SOP (Standard Operating Procedure) loomise assistent eestikeelsetele VKE-dele.
 
 Sinu ülesanne on aidata kasutajal dokumenteerida äriprotsesse struktureeritud SOP formaadis.
@@ -92,7 +103,7 @@ def _build_system(company_info):
 
 
 def chat(messages, company_info=None):
-    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = Anthropic(api_key=_api_key())
     response = client.messages.create(
         model=MODEL,
         max_tokens=4096,
@@ -104,7 +115,7 @@ def chat(messages, company_info=None):
 
 def generate_sop(chat_history, company_info=None):
     """Force-generate a clean SOP from the full conversation."""
-    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = Anthropic(api_key=_api_key())
     messages = list(chat_history) + [
         {
             "role": "user",
@@ -134,7 +145,7 @@ def extract_sop_content(text):
 
 def generate_automation_suggestions(sop_content, company_info=None):
     """Generate AI/automation opportunity suggestions for the given SOP."""
-    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = Anthropic(api_key=_api_key())
 
     context = ""
     if company_info:
@@ -167,7 +178,7 @@ def generate_automation_suggestions(sop_content, company_info=None):
 
 def generate_process_diagram(sop_content, company_info=None):
     """Return JSON list of process steps: [{"samm": "...", "roll": "..."}, ...]"""
-    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = Anthropic(api_key=_api_key())
 
     roles = ""
     if company_info and company_info.get("roles"):
@@ -201,7 +212,7 @@ SOP dokument:
 
 def generate_mermaid_diagram(sop_content, company_info=None):
     """Generate a Mermaid flowchart from SOP content. Returns raw Mermaid syntax string."""
-    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = Anthropic(api_key=_api_key())
 
     roles = ""
     if company_info and company_info.get("roles"):
