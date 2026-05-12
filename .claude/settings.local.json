@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip show:*)",
+      "Bash(python3 -m streamlit --version)",
+      "Bash(pip3 install:*)"
+    ]
+  }
+}
