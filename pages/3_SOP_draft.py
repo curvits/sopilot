@@ -275,13 +275,24 @@ with dl_col3:
             pass
     if _diag_steps:
         _svg_dl, _ = _build_svg(_diag_steps)
-        st.download_button(
-            label="Laadi alla protsessijoonis",
-            data=_svg_dl.encode("utf-8"),
-            file_name=f"{safe_title}_joonis.svg",
-            mime="image/svg+xml",
-            use_container_width=True,
-        )
+        try:
+            import cairosvg
+            _png_bytes = cairosvg.svg2png(bytestring=_svg_dl.encode("utf-8"), scale=2)
+            st.download_button(
+                label="Laadi alla protsessijoonis",
+                data=_png_bytes,
+                file_name=f"{safe_title}_joonis.png",
+                mime="image/png",
+                use_container_width=True,
+            )
+        except Exception:
+            st.download_button(
+                label="Laadi alla protsessijoonis",
+                data=_svg_dl.encode("utf-8"),
+                file_name=f"{safe_title}_joonis.svg",
+                mime="image/svg+xml",
+                use_container_width=True,
+            )
     else:
         st.button("Laadi alla protsessijoonis", disabled=True, use_container_width=True,
                   help="Genereeri esmalt SOP vestluslehel")
