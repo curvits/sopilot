@@ -12,9 +12,11 @@ def _api_key():
     if not key:
         try:
             import streamlit as st
-            key = st.secrets.get("ANTHROPIC_API_KEY")
+            key = st.secrets["ANTHROPIC_API_KEY"]
         except Exception:
             pass
+    if not key:
+        raise ValueError("ANTHROPIC_API_KEY puudub. Lisa see Streamlit Cloud Secrets alla.")
     return key
 
 SYSTEM_PROMPT = """Sa oled SOP (Standard Operating Procedure) loomise assistent eestikeelsetele VKE-dele.
