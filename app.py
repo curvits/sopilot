@@ -196,6 +196,6 @@ pg = st.navigation([
     st.Page(home, title="SOPilot", default=True),
     st.Page("pages/1_Ettevõtte_profiil.py", title="Ettevõtte profiil"),
     st.Page("pages/2_SOP_vestlus.py", title="SOP vestlus ✓" if _has_chat else "SOP vestlus"),
-    st.Page("pages/3_SOP_draft.py", title="SOP ✓" if _has_sop else "SOP"),
+    st.Page("pages/3_SOP_draft.py", title="SOP tulemused ✓" if _has_sop else "SOP tulemused"),
 ])
 pg.run()
