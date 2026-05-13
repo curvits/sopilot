@@ -227,7 +227,7 @@ with dl_col1:
     try:
         pdf_bytes = generate_pdf(sop_draft, company_name)
         st.download_button(
-            label="Laadi alla SOP",
+            label="Lae alla SOP",
             data=pdf_bytes,
             file_name=f"{safe_title}.pdf",
             mime="application/pdf",
@@ -240,14 +240,14 @@ with dl_col1:
 with dl_col2:
     if automation:
         st.download_button(
-            label="Laadi alla AI ettepanekud",
+            label="Lae alla AI ettepanekud",
             data=automation.encode("utf-8"),
             file_name=f"{safe_title}_AI_ettepanekud.txt",
             mime="text/plain",
             use_container_width=True,
         )
     else:
-        st.button("Laadi alla AI ettepanekud", disabled=True, use_container_width=True,
+        st.button("Lae alla AI ettepanekud", disabled=True, use_container_width=True,
                   help="Genereeri esmalt AI ettepanekud")
 
 with dl_col3:
@@ -264,7 +264,7 @@ with dl_col3:
             import cairosvg
             _png_bytes = cairosvg.svg2png(bytestring=_svg_dl.encode("utf-8"), scale=2)
             st.download_button(
-                label="Laadi alla protsessijoonis",
+                label="Lae alla protsessijoonis",
                 data=_png_bytes,
                 file_name=f"{safe_title}_joonis.png",
                 mime="image/png",
@@ -272,14 +272,14 @@ with dl_col3:
             )
         except Exception:
             st.download_button(
-                label="Laadi alla protsessijoonis",
+                label="Lae alla protsessijoonis",
                 data=_svg_dl.encode("utf-8"),
                 file_name=f"{safe_title}_joonis.svg",
                 mime="image/svg+xml",
                 use_container_width=True,
             )
     else:
-        st.button("Laadi alla protsessijoonis", disabled=True, use_container_width=True,
+        st.button("Lae alla protsessijoonis", disabled=True, use_container_width=True,
                   help="Genereeri esmalt protsessijoonis")
 
 today = date.today().strftime("%d.%m.%Y")
