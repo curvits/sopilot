@@ -151,13 +151,6 @@ def home():
 """, unsafe_allow_html=True)
     st.markdown('<hr style="border:none;border-top:1px solid #dee2e6">', unsafe_allow_html=True)
 
-    if st.button("Alusta SOP loomist", type="primary"):
-        session_id, _ = create_session()
-        st.session_state["session_id"] = session_id
-        st.switch_page("pages/1_Ettevõtte_profiil.py")
-
-    st.markdown('<hr style="border:none;border-top:1px solid #dee2e6;margin-top:1.5rem">', unsafe_allow_html=True)
-
     st.markdown("""
 **SOPilot** on AI-põhine tööriist, mis aitab väikese ja keskmise suurusega ettevõtetel (VKE) oma äriprotsesse kiiresti ja lihtsalt dokumenteerida. Kirjelda protsess vestluse kaudu — SOPilot loob struktureeritud SOP dokumendi, tuvastab automatiseerimisvõimalused ja joonistab protsessikaardi.
 """)
@@ -178,7 +171,14 @@ AI juhib sind läbi protsessi kirjeldamise struktureeritud vestlusega. Vasta kü
 
 Vaata AI loodud SOP-i, protsessijoonist ja AI automatiseerimisvõimalusi. Redigeeri vajadusel ja laadi alla PDF-ina.""")
 
-    st.markdown('<hr style="border:none;border-top:1px solid #dee2e6">', unsafe_allow_html=True)
+    st.markdown('<hr style="border:none;border-top:1px solid #dee2e6;margin-top:1.5rem">', unsafe_allow_html=True)
+
+    if st.button("Alusta SOP loomist", type="primary"):
+        session_id, _ = create_session()
+        st.session_state["session_id"] = session_id
+        st.switch_page("pages/1_Ettevõtte_profiil.py")
+
+    st.markdown('<hr style="border:none;border-top:1px solid #dee2e6;margin-top:1.5rem">', unsafe_allow_html=True)
     st.markdown("""
 <div style="border:1px solid #ffc107;border-radius:6px;padding:1rem 1.25rem;background:#fffdf0">
 <strong>Oluline märkus:</strong> SOPilot on sessioonipõhine tööriist. Kui sulgead brauseriakna, kaovad kõik andmed. Laadi SOP alla enne akna sulgemist.
