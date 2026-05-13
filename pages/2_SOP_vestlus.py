@@ -152,7 +152,7 @@ if len(chat_history) >= 6 and not current_sop.get("sop_draft"):
 if current_sop.get("sop_draft"):
     btn_col1, btn_col2 = st.columns(2)
     with btn_col1:
-        if st.button("Vaata tulemusi SOP lehel", type="primary", use_container_width=True):
+        if st.button("Vaata tulemusi siit — SOP, AI soovitused, protsessijoonis", type="primary", use_container_width=True):
             st.switch_page("pages/3_SOP_draft.py")
     with btn_col2:
         if st.button("Alusta järgmist SOP-i", use_container_width=True,
