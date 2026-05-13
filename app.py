@@ -146,7 +146,7 @@ def home():
   Dokumenteeri protsessid. Leia automatiseerimisvõimalused. Minutitega.
 </p>
 <p style="font-size:0.97rem;color:#374151;line-height:1.7;max-width:720px;margin:0 0 0.25rem 0">
-  <strong>SOP (Standard Operating Procedure)</strong> on kirjalik juhend, mis kirjeldab samm-sammult, kuidas teie ettevõttes üks töölõik toimib — kes mida teeb, mis järjekorras ja mis on oodatav tulemus. SOPid aitavad uusi töötajaid kiiremini tööle saada, vähendada vigu ja tagada et protsessid toimivad ühtmoodi ka siis, kui võtmeisik on eemal. <strong>SOPilot</strong> aitab sul need dokumendid luua vestluse käigus — ilma tühja lehega alustamise valuta.
+  <strong>SOP (Standard Operating Procedure)</strong> on kirjalik juhend, mis kirjeldab samm-sammult, kuidas teie ettevõttes üks töölõik toimib — kes mida teeb, mis järjekorras ja mis on oodatav tulemus. SOPid aitavad uusi töötajaid kiiremini tööle saada, vähendada vigu ja tagada, et protsessid toimivad ühtmoodi ka siis, kui võtmeisik on eemal. <strong>SOPilot</strong> aitab sul need dokumendid luua vestluse käigus — ilma tühja lehega alustamise valuta.
 </p>
 """, unsafe_allow_html=True)
     st.markdown('<hr style="border:none;border-top:1px solid #dee2e6">', unsafe_allow_html=True)
